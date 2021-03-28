@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="index-container">
   <v-row>
     <v-flex v-for="items in galleryItems.images"
             xs12 sm12 md12 lg12 xl12
@@ -54,5 +54,7 @@ export default {
 </script>
 
 <style scoped>
-
+.image-list{
+  padding-top: 8vh;
+}
 </style>

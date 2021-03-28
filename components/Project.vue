@@ -69,7 +69,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .image-list{
   padding: 20px 30px 10px 20px;
 }

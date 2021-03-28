@@ -1,11 +1,12 @@
 <template>
   <nav>
-    <v-parallax v-if="showParallex"
+    <v-layout v-if="showParallex">
+      <v-flex>
+    <v-parallax
       dark
-      fixed
       :src="getImage"
-      style="width: 100%;height: 100vh;z-index: 1000">
-    <v-app-bar text fixed style="opacity: 70%; position:fixed; z-index:1000;">
+      style="width: 100%;height:100vh;z-index: 1000">
+    <v-app-bar text fixed style="opacity: 70%; position:fixed;">
       <v-app-bar-title><v-img
       src="https://mundelarchitekten.de/wp-content/uploads/2018/06/Logo_ohne_hintergrund_lang_2-300x14.png"
       /></v-app-bar-title>
@@ -32,8 +33,11 @@
         </v-list>
       </v-menu>
     </v-app-bar>
+      <span class="small-text-header">Extra | Text</span>
     <h1 class="font-weight-thick">{{getTitle}}</h1>
     </v-parallax>
+      </v-flex>
+    </v-layout>
     <v-app-bar v-else
       color="white" text fixed style="z-index: 99">
       <v-app-bar-title><v-img
@@ -115,5 +119,17 @@ export default {
 }
 .on-id{
   color: black !important;
+}
+.small-text-header{
+  font-weight: 300;
+  letter-spacing: 4.5px;
+  font-style: normal;
+  margin-top: 0;
+  margin-bottom: 50px;
+  color: #fff;
+  font-family: 'Courier New',serif !important;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: -webkit-center;
 }
 </style>

@@ -54,5 +54,7 @@ export default {
 </script>
 
 <style scoped>
-
+.image-list{
+  padding-top: 8vh;
+}
 </style>

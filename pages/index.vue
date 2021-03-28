@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <h1>Projects</h1>
+      <h1>Projekte</h1>
     </div>
     <Project :fromIndex="true" class="index-container" />
   </div>
@@ -28,7 +28,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .container{
   width: 75%;
   max-height: 100%;
