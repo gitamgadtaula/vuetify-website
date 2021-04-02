@@ -13,12 +13,16 @@
       >
         <router-link :to="`/projekte/${items.value}`">
           <v-card elevation="0" tile>
-            <v-img
-              :src="items.img"
-              :lazy-src="items.img"
-              max-width="500"
-              height="350"
-            ></v-img>
+            <div class="image-container">
+              <figure>
+                <v-img
+                  :src="items.img"
+                  :lazy-src="items.img"
+                  height="350"
+                  max-width="500"
+                ></v-img>
+              </figure>
+            </div>
             <v-card-title primary-title>
               <div>
                 <h3 class="headline mb-0 item-content">
@@ -92,5 +96,31 @@ export default {
 }
 a {
   text-decoration: none;
+}
+</style>
+<style>
+.image-container{
+  position: relative;
+  opacity: 1;
+  display: block;
+  max-width: 500px;
+  height: 350px;
+  background: #000000;
+  overflow: hidden;
+
+}
+.image-container figure {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition: .8s ease-in-out;
+  transition: .8s ease-in-out;
+  opacity: 1;
+  margin-top: 40px;
+}
+.image-container figure:hover {
+  opacity: 0.7;
+  margin-top: 0;
+  /*-webkit-transform: scale(1.3);*/
+  /*transform: scale(1.3);*/
 }
 </style>
