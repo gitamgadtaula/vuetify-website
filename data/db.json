@@ -1,0 +1,11 @@
+{
+  "projekte": [
+    { "id": 1, "value": "json-server", "desc": "description", "images": [] }
+  ],
+  "projektentwicklung": [
+    { "id": 1, "value": "json-server", "desc": "description", "images": [] }
+  ],
+  "salons": [
+    { "id": 1, "value": "json-server", "desc": "description", "images": [] }
+  ]
+}

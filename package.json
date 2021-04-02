@@ -3,16 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt & json-server --watch data/db.json --port 1999",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.3"
+    "n": "^7.1.0",
+    "nodejs": "^0.0.0",
+    "npm": "^7.7.5",
+    "nuxt": "^2.15.3",
+    "stable": "^0.1.8"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.11.3"
+    "@nuxtjs/vuetify": "^1.11.3",
+    "json-server": "^0.16.3"
   }
 }
