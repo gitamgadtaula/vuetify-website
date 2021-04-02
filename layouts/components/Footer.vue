@@ -3,7 +3,7 @@
     <v-footer
       absolute
       class="footer"
-      height="550"
+      height="650"
     >
       <div class="footer-content-outer">
         <div class="footer-top">
@@ -14,7 +14,7 @@
                 <nuxt-link to="/">
                   <v-img
                     src="https://mundelarchitekten.de/wp-content/uploads/2018/08/Logo_ohne_hintergrund_lang_weiss.png"
-                    width="350"
+                    width="600"
                   />
                 </nuxt-link>
               </v-col>
@@ -135,7 +135,7 @@ h6 {
 .footer-bottom .info-bottom {
   float: left;
   width: 50%;
-  font-size: 10px;
+  font-size: 13px;
   line-height: 18px;
   letter-spacing: 2px;
   font-weight: 700;

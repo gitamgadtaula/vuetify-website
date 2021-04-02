@@ -112,8 +112,8 @@ a {
 .image-container figure {
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
-  -webkit-transition: .8s ease-in-out;
-  transition: .8s ease-in-out;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
   opacity: 1;
   margin-top: 40px;
 }
