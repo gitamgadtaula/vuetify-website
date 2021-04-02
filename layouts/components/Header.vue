@@ -1,12 +1,15 @@
 <template>
   <nav>
-    <v-layout v-if="showParallex">
+    <v-layout class="header-layout" v-if="showParallex">
       <v-flex>
     <v-parallax
       dark
       :src="getImage"
       style="width: 100%;height:100vh;z-index: 1000">
-    <v-app-bar text fixed style="opacity: 70%; position:fixed;">
+    <v-app-bar text fixed
+               class="app-bar"
+               elevation="0"
+               :class="{app_bar_scrolled: scrollPosition > 50}">
       <v-app-bar-title><v-img
       src="https://mundelarchitekten.de/wp-content/uploads/2018/06/Logo_ohne_hintergrund_lang_2-300x14.png"
       /></v-app-bar-title>
@@ -33,12 +36,15 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-      <span class="small-text-header">Extra | Text</span>
+      <span v-if="setSmallText"
+        class="small-text-header">{{getDescription}}</span>
     <h1 class="font-weight-thick">{{getTitle}}</h1>
     </v-parallax>
       </v-flex>
     </v-layout>
-    <v-app-bar v-else
+    <v-app-bar
+      elevation="0"
+      v-else
       color="white" text fixed style="z-index: 99">
       <v-app-bar-title><v-img
         src="https://mundelarchitekten.de/wp-content/uploads/2018/06/Logo_ohne_hintergrund_lang_2-300x14.png"
@@ -72,10 +78,17 @@
 <script>
 export default {
   name: "Header",
+  props:{
+    showSmallText: {
+      type: Boolean,
+      default: true
+    },
+  },
   data() {
     return {
       drawer: false,
       dialog: false,
+      scrollPosition: null,
       menuItems: [
         {id: 1, title: 'HOME', path: '/'},
         {id: 2, title: 'PROJEKTE', path: '/projekte'},
@@ -87,6 +100,9 @@ export default {
     }
   },
   methods: {
+    updateScroll() {
+      this.scrollPosition = window.scrollY
+    },
   },
   computed:{
     showParallex() {
@@ -97,12 +113,34 @@ export default {
     },
     getImage(){
       return this.$store.state.imageSrc
+    },
+    setSmallText(){
+      return this.$store.state.smallText
+    },
+    getDescription(){
+      return this.$store.state.description
     }
   },
+  mounted() {
+    window.addEventListener('scroll', this.updateScroll);
+  }
 }
 </script>
 
 <style scoped>
+.app-bar{
+  opacity: 70%;
+  position:fixed;
+}
+.app_bar_scrolled{
+  background-color: black !important;
+  opacity: 100%;
+  transition: background-color 200ms linear;
+  color: white !important;
+}
+.app_bar_scrolled .on-id{
+  color: white !important;
+}
 .fixed-tabs-bar {
       position: -webkit-sticky;
       position: sticky;
@@ -118,7 +156,7 @@ export default {
   font-family: 'Courier New',serif !important;
 }
 .on-id{
-  color: black !important;
+  color: black;
 }
 .small-text-header{
   font-weight: 300;
@@ -131,5 +169,8 @@ export default {
   font-size: 14px;
   line-height: 18px;
   text-align: -webkit-center;
+}
+.header-layout{
+  padding-bottom: 8vh;
 }
 </style>

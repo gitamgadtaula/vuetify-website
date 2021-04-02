@@ -12,7 +12,7 @@
         :key="items.id"
       >
         <router-link :to="`/projektentwicklung/${items.value}`">
-          <v-card elevation="0" tile>
+          <v-card elevation="0" tile class="image-card">
             <v-img
               :src="items.img"
               :lazy-src="items.img"
@@ -123,5 +123,9 @@ export default {
 }
 a {
   text-decoration: none;
+}
+.image-card{
+  background-position: center;
+  background-size: cover;
 }
 </style>

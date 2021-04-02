@@ -24,6 +24,7 @@ export default {
     this.$store.commit("setHeader", true);
     this.$store.commit("setImage", this.homeImg);
     this.$store.commit("setTitle", "");
+    this.$store.commit("setSmallText",false)
   },
 };
 </script>
@@ -31,7 +32,6 @@ export default {
 .container {
   width: 75%;
   max-height: 100%;
-  padding-top: 10rem;
 }
 .index-container {
   padding-top: 0px !important;
