@@ -8,33 +8,32 @@
 </template>
 
 <script>
-
 import Project from "~/components/Project";
 
 export default {
-  data(){
-    return{
-      homeImg:'https://mundelarchitekten.de/wp-content/uploads/2018/08/startbildschirmklein_3.png'
-    }
+  data() {
+    return {
+      homeImg:
+        "https://mundelarchitekten.de/wp-content/uploads/2018/08/startbildschirmklein_3.png",
+    };
   },
   components: {
-    Project
+    Project,
   },
   created() {
-    this.$store.commit('setHeader', true)
-    this.$store.commit('setImage', this.homeImg)
-    this.$store.commit('setTitle', "")
-
-  }
-}
+    this.$store.commit("setHeader", true);
+    this.$store.commit("setImage", this.homeImg);
+    this.$store.commit("setTitle", "");
+  },
+};
 </script>
 <style scoped>
-.container{
+.container {
   width: 75%;
   max-height: 100%;
   padding-top: 10rem;
 }
-.index-container{
+.index-container {
   padding-top: 0px !important;
 }
 </style>

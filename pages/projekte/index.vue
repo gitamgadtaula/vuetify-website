@@ -1,17 +1,17 @@
 <template>
-<Project/>
+  <Project />
 </template>
 
 <script>
 import Project from "~/components/Project";
 export default {
-  components:{Project},
-name: "index",
+  components: { Project },
+  name: "index",
   created() {
-    this.$store.commit('setHeader', false)
-  }}
+    this.$store.commit("setHeader", false);
+  },
+};
 </script>
 
 <style scoped>
-
 </style>
