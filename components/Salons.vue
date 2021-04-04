@@ -7,12 +7,15 @@
               :key="items.id">
         <router-link :to='`/salons/${items.value}`'>
           <v-card elevation="0" tile >
-            <v-img
-              :src="items.img"
-              :lazy-src="items.img"
-              max-width="500"
-              height="350"
-            ></v-img>
+            <div class="image-container">
+              <figure>
+                <v-img
+                  :src="items.img"
+                  :lazy-src="items.img"
+                  height="350"
+                ></v-img>
+              </figure>
+            </div>
             <v-card-title primary-title>
               <div>
                 <h3 class="headline mb-0 item-content">

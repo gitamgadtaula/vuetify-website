@@ -1,7 +1,9 @@
 export const state = () => ({
   headerStyle: false,
   imageSrc:'',
-  titleSrc:''
+  titleSrc:'',
+  smallText:true,
+  description:''
 })
 
 export const mutations = {
@@ -14,4 +16,10 @@ export const mutations = {
   setTitle(state, value) {
     state.titleSrc = value
   },
+  setSmallText(state, value) {
+    state.smallText = value
+  },
+  setDescription(state, value){
+    state.description = value
+  }
 }

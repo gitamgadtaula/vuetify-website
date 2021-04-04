@@ -28,6 +28,8 @@ export default {
     this.$store.commit('setHeader', true)
     this.$store.commit('setImage', this.galleryItems.titleImg)
     this.$store.commit('setTitle', this.value)
+    this.$store.commit("setSmallText",true)
+    this.$store.commit("setDescription",this.galleryItems.description)
 
   },
   methods:{
@@ -39,6 +41,7 @@ export default {
       this.galleryItems =  {
         id:1,
         title:this.$route.params.id,
+        description:"Small | Text | Projektentwicklung",
         titleImg:"https://picsum.photos/1000?image="+this.$route.params.id.split("")[this.$route.params.id.length - 1],
         images: [
           {img: "https://picsum.photos/500/300?image=85"},
@@ -55,6 +58,6 @@ export default {
 
 <style scoped>
 .image-list{
-  padding-top: 8vh;
+  padding-bottom: 8vh;
 }
 </style>
