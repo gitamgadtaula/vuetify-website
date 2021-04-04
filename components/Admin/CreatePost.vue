@@ -6,16 +6,18 @@
       <br />
       <!-- <v-row> -->
       <v-card elevation="2" class="mx-auto">
-        <v-card-title>Enter new item </v-card-title>
+        <v-card-title>Add new {{type}} </v-card-title>
         <v-form ref="form" lazy-validation style="padding: 20px">
           <v-text-field
             v-model="form.value"
+            :rules="[() => !!form.value || 'This field is required']"
             label="Title"
             required
           ></v-text-field>
           <v-text-field
             v-model="form.desc"
             label="Description"
+            :rules="[() => !!form.desc || 'This field is required']"
             required
           ></v-text-field>
           <v-file-input
@@ -56,7 +58,7 @@ export default {
   data() {
     return {
       form: {
-        image: [],
+        images: [],
         value: "",
         desc: "",
       },
@@ -64,7 +66,6 @@ export default {
   },
   methods: {
     submitPost() {
-      this.form.image = this.form.image.filter((item, index) => index > 0);
       this.$axios.post(`/${this.type}`, this.form).then((response) => {
         console.log(response);
       });
@@ -73,7 +74,7 @@ export default {
       e.forEach((element) => {
         this.getBase64(element, (base64Data) => {
           console.log("Base 64 data is: " + base64Data);
-          this.form.image.push(base64Data);
+          this.form.images.push(base64Data);
         });
       });
     },
