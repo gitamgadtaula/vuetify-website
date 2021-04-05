@@ -1,5 +1,5 @@
 <template>
-  <create-post type="projekte" />
+  <create-post type="salons" />
 </template>
 
 <script>

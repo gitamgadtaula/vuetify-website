@@ -1,5 +1,5 @@
 <template>
-  <view-post type="projekte" />
+  <view-post type="salons" />
 </template>
 
 <script>

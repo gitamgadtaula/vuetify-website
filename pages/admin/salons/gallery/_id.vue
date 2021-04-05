@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <gallery-items type="projekteGallery" :id="$route.params.id" />
+    <gallery-items type="salonsGallery" :id="$route.params.id" />
   </v-app>
 </template>
 
 <script>
-import GalleryItems from "@/components/Admin/GalleryItems.vue";
+import GalleryItems from "@/components/Admin/GalleryItems";
 export default {
   components: {
     GalleryItems,

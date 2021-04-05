@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <gallery-items type="projekteGallery" :id="$route.params.id" />
+    <gallery-items type="projektentwicklungGallery" :id="$route.params.id" />
   </v-app>
 </template>
 
