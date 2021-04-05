@@ -5,7 +5,7 @@
         <p class="title">{{ item.value }}</p>
         <p class="desc">{{ item.desc }}</p>
         <div class="images">
-          <img v-for="(img, i) in item.images" :key="i" :src="img" />
+          <img :src="item.img" />
         </div>
         <hr />
       </div>

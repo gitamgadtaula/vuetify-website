@@ -6,7 +6,7 @@
       <br />
       <!-- <v-row> -->
       <v-card elevation="2" class="mx-auto">
-        <v-card-title>Add new {{type}} </v-card-title>
+        <v-card-title>Add new {{ type }} </v-card-title>
         <v-form ref="form" lazy-validation style="padding: 20px">
           <v-text-field
             v-model="form.value"
@@ -23,7 +23,6 @@
           <v-file-input
             label="Upload Image"
             filled
-            multiple
             show-size
             prepend-icon="mdi-camera"
             @change="imageChange"
@@ -58,7 +57,7 @@ export default {
   data() {
     return {
       form: {
-        images: [],
+        img: "",
         value: "",
         desc: "",
       },
@@ -71,11 +70,9 @@ export default {
       });
     },
     imageChange(e) {
-      e.forEach((element) => {
-        this.getBase64(element, (base64Data) => {
-          console.log("Base 64 data is: " + base64Data);
-          this.form.images.push(base64Data);
-        });
+      this.getBase64(e, (base64Data) => {
+        console.log("Base 64 data is: " + base64Data);
+        this.form.img = base64Data;
       });
     },
     getBase64(file, callback) {
