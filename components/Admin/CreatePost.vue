@@ -1,10 +1,6 @@
 <template>
   <v-app>
-    <div class="container">
-      <br />
-      <br />
-      <br />
-      <!-- <v-row> -->
+    <div class="admin-container">
       <v-card elevation="2" class="mx-auto">
         <v-card-title>Add new {{ type }} </v-card-title>
         <v-form ref="form" lazy-validation style="padding: 20px">
@@ -50,7 +46,7 @@
       {{ snackbar.text }}
 
       <template v-slot:action="{ attrs }">
-        <v-btn color="pink" text v-bind="attrs" @click="snackbar.show = false">
+        <v-btn color="white" text v-bind="attrs" @click="snackbar.show = false">
           Close
         </v-btn>
       </template>
@@ -85,6 +81,8 @@ export default {
           console.log(response);
           this.snackbar.show = true;
           this.snackbar.text = `Added new ${this.type} successfully`;
+          this.$router.push(`/admin/${this.type}`);
+          this.snackbar.color = "green";
         })
         .catch((err) => {
           this.snackbar.show = true;

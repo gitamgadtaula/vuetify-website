@@ -1,22 +1,38 @@
 <template>
   <v-app>
     <div class="admin-container">
-      <v-card class="mx-auto">
+      <v-row justify="end" align="end">
+        <v-col align-self="end">
+          <v-btn
+            x-large
+            color="success"
+            dark
+            rounded
+            @click="$router.push(`/admin/${type}/create`)"
+          >
+            Add new {{ type }}</v-btn
+          >
+        </v-col>
+      </v-row>
+      <v-card class="mx-auto contents">
+        <v-card-title v-text="type.toUpperCase() + ' LISTS'"></v-card-title>
+
         <v-container fluid>
           <v-row dense :gutter="[12, 12]">
             <v-col v-for="(item, index) in lists" :key="index" cols="12" sm="3">
               <v-card>
-                <v-img
-                  :src="item.img"
-                  class="white--text align-end image"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                >
-                  <v-card-title v-text="item.value"></v-card-title>
-                  <v-card-subtitle>
-                    {{ item.desc }}
-                  </v-card-subtitle>
-                </v-img>
-
+                <nuxt-link :to="'/admin/' + type + '/gallery/' + item.id">
+                  <v-img
+                    :src="item.img"
+                    class="white--text align-end image"
+                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  >
+                    <v-card-title v-text="item.value"></v-card-title>
+                    <v-card-subtitle>
+                      {{ item.desc }}
+                    </v-card-subtitle>
+                  </v-img>
+                </nuxt-link>
                 <v-card-actions>
                   <v-spacer></v-spacer>
 
@@ -24,7 +40,7 @@
                     <v-icon>mdi-pencil</v-icon>
                   </v-btn>
 
-                  <v-btn icon @click="deleteItem(item.id)">
+                  <v-btn icon @click="openDeleteDialog(item.id)">
                     <v-icon>mdi-delete</v-icon>
                   </v-btn>
                 </v-card-actions>
@@ -79,6 +95,27 @@
         </template>
       </v-dialog>
 
+      <!-- dialog for deleting -->
+      <v-dialog v-model="deleteDialog" max-width="290">
+        <v-card>
+          <v-card-title>
+            Are you sure you want to delete this item?
+          </v-card-title>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn color="green darken-1" text @click="deleteDialog = false">
+              Cancel
+            </v-btn>
+
+            <v-btn color="red darken-1" text @click="deleteItem">
+              Delete
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
       <v-snackbar
         v-model="snackbar.show"
         timeout="2000"
@@ -87,7 +124,12 @@
         {{ snackbar.text }}
 
         <template v-slot:action="{ attrs }">
-          <v-btn color="white" text v-bind="attrs" @click="snackbar = false">
+          <v-btn
+            color="white"
+            text
+            v-bind="attrs"
+            @click="snackbar.show = false"
+          >
             Close
           </v-btn>
         </template>
@@ -107,8 +149,10 @@ export default {
   data() {
     return {
       dialog: false,
+      deleteDialog: false,
       lists: [],
       activeList: {},
+      activeId: {},
       snackbar: {
         show: false,
         color: "green",
@@ -140,6 +184,21 @@ export default {
         this.activeList = response.data;
       });
     },
+    openDeleteDialog(id) {
+      this.activeId = id;
+      this.deleteDialog = true;
+    },
+    deleteItem() {
+      this.$axios.delete(`/${this.type}/${this.activeId}`).then((response) => {
+        this.getLists();
+        this.deleteDialog = false;
+        this.snackbar.show = true;
+        this.snackbar.text = "Deleted successfully";
+        this.snackbar.color = "green";
+        this.dialog = false;
+      });
+    },
+
     getLists() {
       this.$axios.get(`/${this.type}`).then((response) => {
         this.lists = response.data;
@@ -169,8 +228,7 @@ export default {
   height: auto;
   object-fit: cover;
 }
-.admin-container {
-  padding: 20px;
-  margin-top: 50px;
+.contents {
+  margin-top: 10px;
 }
 </style>
