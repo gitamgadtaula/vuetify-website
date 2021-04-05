@@ -46,6 +46,15 @@
         <!-- </v-row> -->
       </div>
     </div>
+    <v-snackbar v-model="snackbar.show" timeout="2000" :color="snackbar.color">
+      {{ snackbar.text }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn color="pink" text v-bind="attrs" @click="snackbar.show = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -61,13 +70,27 @@ export default {
         value: "",
         desc: "",
       },
+      snackbar: {
+        show: false,
+        color: "green",
+        text: "",
+      },
     };
   },
   methods: {
     submitPost() {
-      this.$axios.post(`/${this.type}`, this.form).then((response) => {
-        console.log(response);
-      });
+      this.$axios
+        .post(`/${this.type}`, this.form)
+        .then((response) => {
+          console.log(response);
+          this.snackbar.show = true;
+          this.snackbar.text = `Added new ${this.type} successfully`;
+        })
+        .catch((err) => {
+          this.snackbar.show = true;
+          this.snackbar.text = "Failed ";
+          this.snackbar.color = "red";
+        });
     },
     imageChange(e) {
       this.getBase64(e, (base64Data) => {
