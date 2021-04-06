@@ -34,6 +34,7 @@
                       v-bind="attrs"
                       v-on="on"
                       class="on-id"
+                      elevation="0"
                       style="text-decoration: none;;background-color: transparent;"
                     > {{ item.title }}
                     </v-btn>
@@ -106,6 +107,7 @@
                 left>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
+              elevation="0"
               v-bind="attrs"
               v-on="on"
               style="background-color: transparent;"
