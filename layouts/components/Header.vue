@@ -2,10 +2,12 @@
   <nav style="padding-top: 0">
     <v-layout v-if="showParallex" class="header-layout">
       <v-flex>
+        <div class="parallex-wrap">
         <v-parallax
+          style="z-index: 100"
           :src="getImage"
-          dark
-          style="width: 100%;height:100vh;z-index: 1000;">
+          jumbotron
+          class="parallax-class">
           <v-app-bar :class="{app_bar_scrolled: scrollPosition > 200}" class="app-bar"
                      elevation="0"
                      fixed
@@ -21,27 +23,64 @@
                      :key="item.id"
                      :to="item.path"
                      class="on-id"
-                     text>
-                {{ item.title }}
+                     text
+              >
+                <v-menu v-if="item.title === 'UBER UNS'"
+                        bottom
+                        left
+                style="z-index: 500">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      v-bind="attrs"
+                      v-on="on"
+                      class="on-id"
+                      style="text-decoration: none;;background-color: transparent;"
+                    > {{ item.title }}
+                    </v-btn>
+                  </template>
+                  <v-list >
+                    <v-list-item v-for="additem in item.items" :key="item.id">
+                      <v-list-item-title >
+                        <v-btn :to="additem.path"
+                               left
+                               style="width: 100%;background-color: white">
+                          {{ additem.title }}</v-btn>
+                      </v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
+                <div v-else>{{ item.title }}
+                </div>
               </v-btn>
             </v-toolbar-items>
-            <v-menu class="hidden-md-and-up">
-              <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
-              <v-list>
-                <v-list-item v-for="item in menuItems" :key="item.id">
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      {{ item.title }}
-                    </v-list-item-title>
-                  </v-list-item-content>
+            <v-menu class="hidden-md-and-up"
+                    bottom
+                    left
+                    style="z-index: 500">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  icon
+                  color="black"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <v-icon class="hidden-md-and-up">mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+              <v-list style="background-color: white">
+                <v-list-item v-for="item in menuListItems" :key="item.id">
+                  <v-list-item-title>
+                    <v-btn :to="item.path" style="width: 100%;background-color: white">{{ item.title }}</v-btn>
+                  </v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
-          </v-app-bar>
+           </v-app-bar>
           <span v-if="setSmallText"
                 class="small-text-header">{{ getDescription }}</span>
           <h1 class="font-weight-thick">{{ getTitle }}</h1>
         </v-parallax>
+        </div>
       </v-flex>
     </v-layout>
     <v-app-bar
@@ -62,18 +101,49 @@
                :to="item.path"
                text
         >
-          {{ item.title }}
+        <v-menu v-if="item.title === 'UBER UNS'"
+                bottom
+                left>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              v-bind="attrs"
+              v-on="on"
+              style="background-color: transparent;"
+            > {{ item.title }}
+            </v-btn>
+          </template>
+          <v-list style="background-color: white">
+            <v-list-item v-for="additem in item.items" :key="item.id">
+              <v-list-item-title>
+                <v-btn :to="additem.path"
+                       style="width: 100%;background-color: white">{{ additem.title }}</v-btn>
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+          <div v-else>{{ item.title }}
+          </div>
         </v-btn>
       </v-toolbar-items>
-      <v-menu class="hidden-md-and-up">
-        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
-        <v-list>
-          <v-list-item v-for="item in menuItems" :key="item.id">
-            <v-list-item-content>
+      <v-menu class="hidden-md-and-up"
+              left>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            left
+            color="black"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon class="hidden-md-and-up">mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list style="background-color: white;">
+          <v-list-item v-for="item in menuListItems" :key="item.id">
               <v-list-item-title>
-                {{ item.title }}
+                <v-btn :to="item.path"
+                       style="width: 100%;background-color: white;">{{ item.title }}</v-btn>
               </v-list-item-title>
-            </v-list-item-content>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -111,6 +181,19 @@ export default {
           ]
         },
         {id: 6, title: 'KONTAKT', path: '/kontakt'},
+      ],
+      menuListItems: [
+        {id: 1, title: 'HOME', path: '/'},
+        {id: 2, title: 'PROJEKTE', path: '/projekte'},
+        {id: 3, title: 'PROJEKTENTWICKLUNG', path: '/projektentwicklung'},
+        {id: 4, title: 'SALONS', path: '/salons'},
+        {id: 5, title: 'UBER UNS'},
+        {id: "a", title: 'LEISTUNGEN', path: '/leistungen'},
+        {id: "b", title: 'PHILOSOPHIE', path: '/philosophie'},
+        {id: "c", title: 'TEAM', path: '/team'},
+        {id: "d", title: 'KUNDEN', path: '/kunden'},
+        {id: "e", title: 'IMPRESSUM', path: '/impressum'},
+        {id: 6, title: 'KONTAKT', path: '/kontakt'},
       ]
     }
   },
@@ -144,8 +227,8 @@ export default {
 
 <style scoped>
 .v-parallax__image {
-  transform: none !important;
-  width: 100% !important;
+  transform: translate(-50%,200px) !important;
+  vertical-align: middle !important;
 }
 
 .parallax-mirror {
@@ -208,6 +291,20 @@ export default {
 
 .app_bar_scrolled_else {
   opacity: 0.5;
+}
+.parallax-class{
+  width:100%;
+  height:800px !important;
+  z-index: 1000;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+@media only screen and (max-width: 800px) {
+  .parallax-class{
+    height: 600px !important;
+  }
 }
 
 </style>
