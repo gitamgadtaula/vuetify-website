@@ -73,7 +73,7 @@
               <v-menu class="hidden-md-and-up" bottom left style="z-index: 500">
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn icon color="black" v-bind="attrs" v-on="on">
-                    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                    <v-app-bar-nav-icon class="hidden-md-and-up">></v-app-bar-nav-icon>
                   </v-btn>
                 </template>
                 <v-list style="background-color: white">
