@@ -125,7 +125,7 @@
               </v-btn>
             </template>
             <v-list style="background-color: white">
-              <v-list-item v-for="additem in item.items" :key="item.id">
+              <v-list-item v-for="(additem,index) in item.items" :key="index">
                 <v-list-item-title>
                   <v-btn
                     :to="additem.path"
