@@ -107,7 +107,7 @@ export default {
 }
 .item-content {
   font-size: 16px;
-  font-family: Roboto, sans-serif;
+  /*font-family: Roboto, sans-serif;*/
   font-weight: 400;
   word-wrap: break-word;
 }
