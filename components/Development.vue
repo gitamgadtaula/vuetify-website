@@ -41,58 +41,7 @@ export default {
   name: "Development",
   data() {
     return {
-      developmentItems: [
-        {
-          id: 1,
-          value: "Item11",
-          img: "https://picsum.photos/500/300?image=11",
-        },
-        {
-          id: 2,
-          value: "Item12",
-          img: "https://picsum.photos/500/300?image=12",
-        },
-        {
-          id: 3,
-          value: "Item13",
-          img: "https://picsum.photos/500/300?image=13",
-        },
-        {
-          id: 4,
-          value: "Item14",
-          img: "https://picsum.photos/500/300?image=14",
-        },
-        {
-          id: 5,
-          value: "Item15",
-          img: "https://picsum.photos/500/300?image=15",
-        },
-        {
-          id: 6,
-          value: "Item16",
-          img: "https://picsum.photos/500/300?image=16",
-        },
-        {
-          id: 7,
-          value: "Item17",
-          img: "https://picsum.photos/500/300?image=17",
-        },
-        {
-          id: 8,
-          value: "Item18",
-          img: "https://picsum.photos/500/300?image=18",
-        },
-        {
-          id: 9,
-          value: "Item19",
-          img: "https://picsum.photos/500/300?image=19",
-        },
-        {
-          id: 10,
-          value: "Item20",
-          img: "https://picsum.photos/500/300?image=20",
-        },
-      ],
+      developmentItems: [],
     };
   },
   methods: {

@@ -43,22 +43,7 @@ export default {
   props: ["fromIndex"],
   data() {
     return {
-      projectItems: [
-        { id: 1, value: "Item1", img: "https://picsum.photos/500/300?image=1" },
-        { id: 2, value: "Item2", img: "https://picsum.photos/500/300?image=2" },
-        { id: 3, value: "Item3", img: "https://picsum.photos/500/300?image=3" },
-        { id: 4, value: "Item4", img: "https://picsum.photos/500/300?image=4" },
-        { id: 5, value: "Item5", img: "https://picsum.photos/500/300?image=5" },
-        { id: 6, value: "Item6", img: "https://picsum.photos/500/300?image=6" },
-        { id: 7, value: "Item7", img: "https://picsum.photos/500/300?image=7" },
-        { id: 8, value: "Item8", img: "https://picsum.photos/500/300?image=8" },
-        { id: 9, value: "Item9", img: "https://picsum.photos/500/300?image=9" },
-        {
-          id: 10,
-          value: "Item10",
-          img: "https://picsum.photos/500/300?image=10",
-        },
-      ],
+      projectItems: [],
     };
   },
   methods: {

@@ -41,58 +41,7 @@ export default {
   name: "Salons",
   data() {
     return {
-      salonsItems: [
-        {
-          id: 1,
-          value: "Item21",
-          img: "https://picsum.photos/500/300?image=21",
-        },
-        {
-          id: 2,
-          value: "Item22",
-          img: "https://picsum.photos/500/300?image=22",
-        },
-        {
-          id: 3,
-          value: "Item23",
-          img: "https://picsum.photos/500/300?image=23",
-        },
-        {
-          id: 4,
-          value: "Item24",
-          img: "https://picsum.photos/500/300?image=24",
-        },
-        {
-          id: 5,
-          value: "Item25",
-          img: "https://picsum.photos/500/300?image=25",
-        },
-        {
-          id: 6,
-          value: "Item26",
-          img: "https://picsum.photos/500/300?image=26",
-        },
-        {
-          id: 7,
-          value: "Item27",
-          img: "https://picsum.photos/500/300?image=27",
-        },
-        {
-          id: 8,
-          value: "Item28",
-          img: "https://picsum.photos/500/300?image=28",
-        },
-        {
-          id: 9,
-          value: "Item29",
-          img: "https://picsum.photos/500/300?image=29",
-        },
-        {
-          id: 10,
-          value: "Item30",
-          img: "https://picsum.photos/500/300?image=30",
-        },
-      ],
+      salonsItems: [],
     };
   },
   methods: {
