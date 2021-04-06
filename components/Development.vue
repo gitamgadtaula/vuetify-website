@@ -11,7 +11,7 @@
         class="image-list"
         :key="items.id"
       >
-        <router-link :to="`/projektentwicklung/${items.value}`">
+        <router-link :to="`/projektentwicklung/${items.id}`">
           <v-card elevation="0" tile class="image-card">
             <div class="image-container">
               <figure>
@@ -95,7 +95,16 @@ export default {
       ],
     };
   },
+  methods: {
+    getLists() {
+      this.$axios.get("/projektentwicklung").then((response) => {
+        console.log(response.data);
+        this.developmentItems = response.data;
+      });
+    },
+  },
   created() {
+    this.getLists();
     this.$store.commit("setHeader", false);
   },
 };
@@ -127,7 +136,7 @@ export default {
 a {
   text-decoration: none;
 }
-.image-card{
+.image-card {
   background-position: center;
   background-size: cover;
 }
