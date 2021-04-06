@@ -107,7 +107,7 @@ export default {
   line-height: inherit;
   font-weight: inherit;
   color: inherit;
-  font-family: 'Courier New', serif !important;
+  /*font-family: 'Courier New', serif !important;*/
   margin: 0 0 10px;
 }
 
@@ -116,7 +116,7 @@ export default {
   font-style: normal;
   letter-spacing: 4.5px;
   color: #fff;
-  font-family: 'Courier New', serif !important;
+  /*font-family: 'Courier New', serif !important;*/
   line-height: 18px;
 }
 

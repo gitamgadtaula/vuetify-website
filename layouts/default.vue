@@ -20,3 +20,11 @@ export default {
   }
 }
 </script>
+<style>
+html{
+  font-family: 'Courier New', monospace;
+padding-top: 0}
+body{
+  padding: 0;
+}
+</style>

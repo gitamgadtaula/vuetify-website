@@ -77,7 +77,7 @@ export default {
 }
 .item-content {
   font-size: 16px;
-  font-family: Roboto, sans-serif;
+  /*font-family: Roboto, sans-serif;*/
   font-weight: 400;
   word-wrap: break-word;
 }
@@ -102,12 +102,16 @@ a {
 .image-container{
   position: relative;
   opacity: 1;
-  display: block;
-  max-width: 500px;
-  height: 350px;
+  width: 100%;
+  height: 250px;
   background: #000000;
   overflow: hidden;
-
+}
+.image-container figure::after {
+  display: block;
+  content: "";
+  /* 4:3 aspect ratio */
+  padding-bottom: 75%;
 }
 .image-container figure {
   -webkit-transform: scale(1.5);
@@ -122,5 +126,18 @@ a {
   margin-top: 0;
   /*-webkit-transform: scale(1.3);*/
   /*transform: scale(1.3);*/
+}
+
+.ratio-4-3{
+  width:100%;
+  position:relative;
+  background: 50% 50% no-repeat;
+  background-size:cover;
+  background-clip:content-box;
+}
+.ratio-4-3:before{
+  display:block;
+  content:"";
+  padding-top:75%;
 }
 </style>
