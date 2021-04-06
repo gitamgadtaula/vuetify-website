@@ -120,6 +120,7 @@
               <v-btn
                 v-bind="attrs"
                 v-on="on"
+                elevation="0"
                 style="background-color: transparent"
               >
                 {{ item.title }}
