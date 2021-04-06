@@ -1,15 +1,18 @@
 <template>
   <div class="container">
     <v-row>
-      <v-flex v-for="items in salonGalleryItems.images"
-              xs12 sm12 md12 lg12 xl12
-              class="image-list"
-              :key="items.img"
-              style="z-index: 0">
-        <v-img
-          :src="items.img"
-          :lazy-src="items.img">
-        </v-img>
+      <v-flex
+        v-for="items in galleryItems.images"
+        xs12
+        sm12
+        md12
+        lg12
+        xl12
+        class="image-list"
+        :key="items.img"
+        style="z-index: 0"
+      >
+        <v-img :src="items.img" :lazy-src="items.img"> </v-img>
       </v-flex>
     </v-row>
   </div>
@@ -17,47 +20,50 @@
 
 <script>
 export default {
-  data(){
-    return{
-      value:this.$route.params.id,
-      galleryItems:""
-    }
+  data() {
+    return {
+      id: this.$route.params.id,
+      galleryItems: {
+        title: "",
+        description: "",
+        titleImg: "",
+        images: [],
+      },
+    };
   },
-  created(){
-    this.getItems()
-    this.$store.commit('setHeader', true)
-    this.$store.commit('setImage', this.salonGalleryItems.titleImg)
-    this.$store.commit('setTitle', this.value)
-    this.$store.commit("setSmallText",true)
-    this.$store.commit("setDescription",this.salonGalleryItems.description)
-
+  created() {
+    this.getGalleryItems();
+    this.getParentItem();
   },
-  methods:{
-    getItems(){
-      //  Do something with "id" variable passed
-      console.log(this.$route.params.id)
-
-      //  Dummy data
-      this.salonGalleryItems =  {
-        id:1,
-        title:this.$route.params.id,
-        description:"Small | Text | Salons",
-        titleImg:"https://picsum.photos/1000?image=1",
-        images: [
-          {img: "https://picsum.photos/500/300?image=16"},
-          {img: "https://picsum.photos/500/300?image=18"},
-          {img: "https://picsum.photos/500/300?image=26"},
-          {img: "https://picsum.photos/500/300?image=28"},
-          {img: "https://picsum.photos/500/300?image=88"},
-        ]
-      }
+  methods: {
+    getGalleryItems() {
+      this.$axios
+        .get(`/projektentwicklungGallery?master_id=${this.id}`)
+        .then((response) => {
+          this.$set(this.galleryItems, "images", response.data);
+        });
     },
-  }
-}
+    getParentItem() {
+      this.$axios.get(`/projektentwicklung/${this.id}`).then((response) => {
+        this.$set(this.galleryItems, "title", response.data.value);
+        this.$set(this.galleryItems, "description", response.data.desc);
+        this.$set(this.galleryItems, "titleImg", response.data.img);
+        this.setGlobalSettings();
+      });
+    },
+    setGlobalSettings() {
+      this.$store.commit("setHeader", true);
+      this.$store.commit("setImage", this.galleryItems.titleImg);
+      this.$store.commit("setTitle", this.galleryItems.title);
+      this.$store.commit("setSmallText", true);
+      this.$store.commit("setDescription", this.galleryItems.description);
+    },
+  },
+};
 </script>
 
 <style scoped>
-.image-list{
+.image-list {
   padding-bottom: 8vh;
 }
 </style>

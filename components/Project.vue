@@ -11,7 +11,7 @@
         class="image-list"
         :key="items.id"
       >
-        <router-link :to="`/projekte/${items.value}`">
+        <router-link :to="`/projekte/${items.id}`">
           <v-card elevation="0" tile>
             <div class="image-container">
               <figure>
@@ -43,25 +43,18 @@ export default {
   props: ["fromIndex"],
   data() {
     return {
-      projectItems: [
-        { id: 1, value: "Item1", img: "https://picsum.photos/500/300?image=1" },
-        { id: 2, value: "Item2", img: "https://picsum.photos/500/300?image=2" },
-        { id: 3, value: "Item3", img: "https://picsum.photos/500/300?image=3" },
-        { id: 4, value: "Item4", img: "https://picsum.photos/500/300?image=4" },
-        { id: 5, value: "Item5", img: "https://picsum.photos/500/300?image=5" },
-        { id: 6, value: "Item6", img: "https://picsum.photos/500/300?image=6" },
-        { id: 7, value: "Item7", img: "https://picsum.photos/500/300?image=7" },
-        { id: 8, value: "Item8", img: "https://picsum.photos/500/300?image=8" },
-        { id: 9, value: "Item9", img: "https://picsum.photos/500/300?image=9" },
-        {
-          id: 10,
-          value: "Item10",
-          img: "https://picsum.photos/500/300?image=10",
-        },
-      ],
+      projectItems: [],
     };
   },
+  methods: {
+    getLists() {
+      this.$axios.get("/projekte").then((response) => {
+        this.projectItems = response.data;
+      });
+    },
+  },
   created() {
+    this.getLists();
     if (!this.fromIndex) {
       this.$store.commit("setHeader", false);
     } else {
@@ -99,7 +92,7 @@ a {
 }
 </style>
 <style>
-.image-container{
+.image-container {
   position: relative;
   opacity: 1;
   width: 100%;
@@ -116,8 +109,8 @@ a {
 .image-container figure {
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   opacity: 1;
   margin-top: 40px;
 }
@@ -128,16 +121,4 @@ a {
   /*transform: scale(1.3);*/
 }
 
-.ratio-4-3{
-  width:100%;
-  position:relative;
-  background: 50% 50% no-repeat;
-  background-size:cover;
-  background-clip:content-box;
-}
-.ratio-4-3:before{
-  display:block;
-  content:"";
-  padding-top:75%;
-}
 </style>
