@@ -1,5 +1,5 @@
 <template>
-  <nav style="padding-top: 0">
+  <div style="padding-top: 0">
     <v-layout v-if="showParallex" class="header-layout">
       <v-flex>
         <div class="parallex-wrap">
@@ -42,6 +42,7 @@
                         v-bind="attrs"
                         v-on="on"
                         class="on-id"
+                        elevation="0"
                         style="
                           text-decoration: none;
                           background-color: transparent;
@@ -119,6 +120,7 @@
               <v-btn
                 v-bind="attrs"
                 v-on="on"
+                elevation="0"
                 style="background-color: transparent"
               >
                 {{ item.title }}
@@ -158,7 +160,7 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-  </nav>
+  </div>
 </template>
 
 <script>
