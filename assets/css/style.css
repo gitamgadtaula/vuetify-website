@@ -1,0 +1,18 @@
+.admin-container {
+  margin-top: 80px;
+  padding: 10px;
+}
+.mt {
+  margin-top: 10px;
+}
+.mb {
+  margin-bottom: 10px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.top-nav-btns {
+  display: flex;
+  justify-content: space-between;
+}
