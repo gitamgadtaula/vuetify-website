@@ -121,16 +121,4 @@ a {
   /*transform: scale(1.3);*/
 }
 
-.ratio-4-3 {
-  width: 100%;
-  position: relative;
-  background: 50% 50% no-repeat;
-  background-size: cover;
-  background-clip: content-box;
-}
-.ratio-4-3:before {
-  display: block;
-  content: "";
-  padding-top: 75%;
-}
 </style>
