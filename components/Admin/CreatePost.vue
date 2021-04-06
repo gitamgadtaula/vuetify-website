@@ -1,6 +1,19 @@
 <template>
   <v-app>
     <div class="admin-container">
+      <v-btn
+        x-large
+        color="primary"
+        dark
+        rounded
+        @click="$router.back()"
+        class="mb"
+      >
+       
+      <v-icon left>
+        mdi-arrow-left
+      </v-icon> Back</v-btn
+      >
       <v-card elevation="2" class="mx-auto">
         <v-card-title>Add new {{ type }} </v-card-title>
         <v-form ref="form" lazy-validation style="padding: 20px">
@@ -29,18 +42,7 @@
           </v-btn>
         </v-form>
       </v-card>
-      <div class="uploaded-images">
-        <!-- <img
-          v-for="(item, index) in form.image.filter(
-            (item, index) => item || item != ''
-          )"
-          :key="index"
-          :src="item"
-          class="images"
-        />
-      </div> -->
-        <!-- </v-row> -->
-      </div>
+      <div class="uploaded-images"></div>
     </div>
     <v-snackbar v-model="snackbar.show" timeout="2000" :color="snackbar.color">
       {{ snackbar.text }}

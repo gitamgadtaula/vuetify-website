@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div class="admin-container">
-      <v-card elevation="2" class="mx-auto" max-width="500">
+      <v-card elevation="2" class="mx-auto" max-width="500" color="#26c6da">
         <v-card-title>Admin Panel </v-card-title>
         <v-list>
           <v-list-item-group>

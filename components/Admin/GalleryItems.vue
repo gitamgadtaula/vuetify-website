@@ -1,20 +1,29 @@
 <template>
   <v-app>
     <div class="admin-container">
-      <v-row justify="end" align="end">
-        <v-col align-self="end">
-          <v-btn
-            x-large
-            color="success"
-            dark
-            rounded
-            @click="openCreateDialog"
-            class="mb"
-          >
-            Add a new gallery</v-btn
-          >
-        </v-col>
-      </v-row>
+      <div class="top-nav-btns mb">
+        <v-btn
+          x-large
+          color="primary"
+          dark
+          rounded
+          @click="$router.back()"
+          class="mb"
+        >
+          <v-icon left> mdi-arrow-left </v-icon> Back</v-btn
+        >
+        <v-btn
+          x-large
+          color="success"
+          dark
+          rounded
+          @click="openCreateDialog"
+          class="mb"
+        >
+          Add a new gallery</v-btn
+        >
+      </div>
+
       <v-card class="mx-auto contents">
         <v-card-title v-text="type.toUpperCase() + ' LISTS'"></v-card-title>
 
