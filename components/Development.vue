@@ -1,44 +1,15 @@
 <template>
   <div class="container">
-    <v-row>
-      <v-flex
-        v-for="items in developmentItems"
-        xs12
-        sm6
-        md4
-        lg4
-        xl4
-        class="image-list"
-        :key="items.id"
-      >
-        <router-link :to="`/projektentwicklung/${items.id}`">
-          <v-card elevation="0" tile class="image-card">
-            <div class="image-container">
-              <figure>
-                <v-img
-                  :src="items.img"
-                  :lazy-src="items.img"
-                  height="350"
-                ></v-img>
-              </figure>
-            </div>
-            <v-card-title primary-title>
-              <div>
-                <h3 class="headline mb-0 item-content">
-                  {{ items.value }}
-                </h3>
-              </div>
-            </v-card-title>
-          </v-card>
-        </router-link>
-      </v-flex>
-    </v-row>
+    <image_list_flex :list-data="developmentItems"
+                     :to-value="'projektentwicklung'"/>
   </div>
 </template>
 
 <script>
+import image_list_flex from "@/components/image_list_flex";
 export default {
   name: "Development",
+  components:{image_list_flex},
   data() {
     return {
       developmentItems: [],

@@ -1,15 +1,20 @@
 <template>
   <div style="padding-top: 0">
     <v-layout v-if="showParallex" class="header-layout">
-      <v-flex>
+      <v-row><v-col>
         <div class="parallex-wrap">
           <v-parallax
-            style="z-index: 100"
+            style="z-index: 0"
             :src="getImage"
             jumbotron
             class="parallax-class"
           >
-            <v-app-bar
+            <span v-if="setSmallText" class="small-text-header">{{
+                getDescription
+              }}</span>
+            <h1 class="font-weight-thick">{{ getTitle }}</h1>
+          </v-parallax>
+          <v-app-bar
               :class="{ app_bar_scrolled: scrollPosition > 200 }"
               class="app-bar"
               elevation="0"
@@ -19,7 +24,7 @@
               <v-app-bar-title>
                 <v-img
                   v-if="setSmallText"
-                  src="https://mundelarchitekten.de/wp-content/uploads/2018/06/Logo_ohne_hintergrund_lang_2-300x14.png"
+                  :src="require('@/static/title-image-black.png')"
                 />
               </v-app-bar-title>
               <v-spacer></v-spacer>
@@ -35,14 +40,17 @@
                     v-if="item.title === 'UBER UNS'"
                     bottom
                     left
+                    open-on-hover
+                    offset-y
                     style="z-index: 500"
                   >
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
                         v-bind="attrs"
                         v-on="on"
-                        class="on-id"
+                        class="on-id plain--btn"
                         elevation="0"
+                        :ripple="false"
                         style="
                           text-decoration: none;
                           background-color: transparent;
@@ -90,13 +98,8 @@
                 </v-list>
               </v-menu>
             </v-app-bar>
-            <span v-if="setSmallText" class="small-text-header">{{
-              getDescription
-            }}</span>
-            <h1 class="font-weight-thick">{{ getTitle }}</h1>
-          </v-parallax>
         </div>
-      </v-flex>
+      </v-col></v-row>
     </v-layout>
     <v-app-bar
       v-else
@@ -109,18 +112,24 @@
     >
       <v-app-bar-title>
         <v-img
-          src="https://mundelarchitekten.de/wp-content/uploads/2018/06/Logo_ohne_hintergrund_lang_2-300x14.png"
+          :src="require('@/static/title-image-black.png')"
         />
       </v-app-bar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn v-for="item in menuItems" :key="item.id" :to="item.path" text>
-          <v-menu v-if="item.title === 'UBER UNS'" bottom left>
+          <v-menu v-if="item.title === 'UBER UNS'" bottom left
+                  open-on-hover
+                  offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
                 v-bind="attrs"
                 v-on="on"
                 elevation="0"
+                large
+                block
+                class="plain--btn"
+                :ripple="false"
                 style="background-color: transparent"
               >
                 {{ item.title }}
@@ -223,7 +232,7 @@ export default {
       return this.$store.state.titleSrc;
     },
     getImage() {
-      return this.$store.state.imageSrc;
+      return this.$store.state.imageSrc
     },
     setSmallText() {
       return this.$store.state.smallText;
@@ -239,18 +248,18 @@ export default {
 </script>
 
 <style scoped>
-.v-parallax__image {
-  transform: translate(-50%, 200px) !important;
-  vertical-align: middle !important;
-}
 
-.parallax-mirror {
-  overflow: no-display !important;
+.parallax-mirror{
+  height:auto!important;
+  width:100%!important;
+  padding:45% 0 0;
 }
+.parallax-mirror img{width:100%!important;height:100%!important}
 
 .app-bar {
   opacity: 70%;
   position: fixed;
+  z-index: 500;
 }
 
 .app_bar_scrolled {
@@ -311,12 +320,18 @@ export default {
   z-index: 1000;
   position: relative;
   background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
+  background: transparent no-repeat center center;
 }
 @media only screen and (max-width: 800px) {
   .parallax-class {
     height: 600px !important;
   }
+}
+.plain--btn:hover:before {
+  background-color: transparent;
+}
+.plain--btn{
+  height: 60px !important;
+padding: 0 !important;
 }
 </style>

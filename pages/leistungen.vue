@@ -5,16 +5,16 @@
     <h4>Innenarchitektur –&nbsp;Alle Leistungsphasen der HOAI.</h4>
     <h4>Bauliche Umsetzung –&nbsp;Alle Gewerke durch unseren Kooperationspartner.</h4>
     <p>&nbsp;</p>
-    <p><span style="color: #000000; font-family: 'Courier New';">Wir strukturieren sämtliche Wünsche und Vorstellungen unserer Bauherren in ein</span><br>
-      <span style="color: #000000; font-family: 'Courier New';">über Generationen zeitlosen wertvollen Lebensraum.</span></p>
-    <p><span style="color: #000000; font-family: 'Courier New';">Dabei stellen wir unsere langjährige Erfahrung rund um das Planen, Bauen, das</span><br>
-      <span style="color: #000000; font-family: 'Courier New';">Sortieren und Strukturieren, das Abwägen und Entscheiden unseren Bauherren</span><br>
-      <span style="color: #000000; font-family: 'Courier New';">uneingeschränkt zur Verfügung.</span></p>
-    <p><span style="color: #000000; font-family: 'Courier New';">Langjährig gewachsene vertrauensvolle Kooperationen zu ausführenden</span><br>
-      <span style="color: #000000; font-family: 'Courier New';">Handwerksfirmen, Fachingenieuren sowie internationalen Vertriebs- und</span><br>
-      <span style="color: #000000; font-family: 'Courier New';">Finanzstrukturen bilden dabei das Fundament, die individuell und gemeinsam mit</span><br>
-      <span style="color: #000000; font-family: 'Courier New';">unseren Auftraggebern entwickelte Planung, handwerklich sauber, kostensicher</span><br>
-      <span style="color: #000000; font-family: 'Courier New';">und termingenau um zu setzten.</span></p>
+    <p><span style="color: #000000; font-family: 'Courier New',monospace;">Wir strukturieren sämtliche Wünsche und Vorstellungen unserer Bauherren in ein</span><br>
+      <span style="color: #000000; font-family: 'Courier New',monospace;">über Generationen zeitlosen wertvollen Lebensraum.</span></p>
+    <p><span style="color: #000000; font-family: 'Courier New',monospace;">Dabei stellen wir unsere langjährige Erfahrung rund um das Planen, Bauen, das</span><br>
+      <span style="color: #000000; font-family: 'Courier New',monospace;">Sortieren und Strukturieren, das Abwägen und Entscheiden unseren Bauherren</span><br>
+      <span style="color: #000000; font-family: 'Courier New',monospace;">uneingeschränkt zur Verfügung.</span></p>
+    <p><span style="color: #000000; font-family: 'Courier New',monospace;">Langjährig gewachsene vertrauensvolle Kooperationen zu ausführenden</span><br>
+      <span style="color: #000000; font-family: 'Courier New',monospace;">Handwerksfirmen, Fachingenieuren sowie internationalen Vertriebs- und</span><br>
+      <span style="color: #000000; font-family: 'Courier New',monospace;">Finanzstrukturen bilden dabei das Fundament, die individuell und gemeinsam mit</span><br>
+      <span style="color: #000000; font-family: 'Courier New',monospace;">unseren Auftraggebern entwickelte Planung, handwerklich sauber, kostensicher</span><br>
+      <span style="color: #000000; font-family: 'Courier New',monospace;">und termingenau um zu setzten.</span></p>
     <br>
     <h4>Unserer Leistungen im Überblick:</h4>
     <br>
