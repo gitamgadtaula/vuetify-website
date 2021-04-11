@@ -63,7 +63,9 @@ export default {
         title: "Der Beginn eines gemeinsamen \n Projektes",
         description:"",
         titleImg:
-          "https://mundelarchitekten.de/wp-content/uploads/2018/06/kontakt.png"
+          require("@/static/kontakt.png")
+          // "/_nuxt/static/kontakt.png"
+        // "https://mundelarchitekten.de/wp-content/uploads/2018/06/kontakt.png"
       };
     },
   },

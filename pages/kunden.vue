@@ -10,33 +10,32 @@
     </p>
     <div>
       <v-row>
-        <v-col
+        <v-flex
           v-for="items in names"
           xs12
           sm6
           md4
           lg4
           xl4
-          class="d-flex child-flex"
           :key="items.id"
         >
-          <nuxt-link :to="items.goto">
+          <a :href="items.goto">
             <v-card elevation="0" tile>
               <div class="image-con">
                 <figure>
                   <v-img
-                    style="vertical-align: center"
                     contain
                     :src="items.image"
                     :lazy-src="items.image"
-                    max-height="500"
-                    max-width="500"
+                    max-height="350"
+                    max-width="350"
+                    position="50% 50%"
                   ></v-img>
                 </figure>
               </div>
             </v-card>
-          </nuxt-link>
-        </v-col>
+          </a>
+        </v-flex>
       </v-row>
     </div>
   </div>
@@ -49,9 +48,15 @@ export default {
   data(){
     return{
       names:[
-        {id:1,name:"Seite besuchen",image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",goto:"https://mundelarchitekten.de/kunden/#"},
-        {id:2,name:"Seite besuchen",image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",goto: "https://mundelarchitekten.de/kunden/#"},
-        {id:3,name:"Seite besuchen",image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",goto: "https://mundelarchitekten.de/kunden/#"},
+        {id:1,name:"Seite besuchen",
+          image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",
+          goto:"https://mundelarchitekten.de/kunden/#"},
+        {id:2,name:"Seite besuchen",
+          image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",
+          goto: "https://mundelarchitekten.de/kunden/#"},
+        {id:3,name:"Seite besuchen",
+          image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",
+          goto: "https://mundelarchitekten.de/kunden/#"},
     ]}
   },
   created() {
@@ -92,18 +97,18 @@ div{
   font-weight: 700;
   margin-top: -10vh;
 }
-.image-con figure {
+.image-con {
   position: relative;
-  opacity: 1;
+  opacity: 0.5;
   width: 100%;
   height: 250px;
   overflow: hidden;
   background: #7e7d7d;
   }
+
 .image-con figure::after {
   display: block;
   content: "";
-
 }
 .image-con figure {
   -webkit-transform: scale(1);

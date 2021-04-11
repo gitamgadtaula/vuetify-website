@@ -39,7 +39,9 @@ export default {
         title: "PHILOSOPHIE",
         description:"",
         titleImg:
-          "https://mundelarchitekten.de/wp-content/uploads/2018/06/07.01-PHILOSOPHIE_bild.jpg"
+          require('@/static/PHILOSOPHIE.jpg')
+          // "/_nuxt/static/PHILOSOPHIE.jpg"
+          // "https://mundelarchitekten.de/wp-content/uploads/2018/06/07.01-PHILOSOPHIE_bild.jpg"
       };
     },
   },

@@ -6,6 +6,7 @@
           <v-parallax
             style="z-index: 0"
             :src="getImage"
+            aspect-ratio="1"
             jumbotron
             class="parallax-class"
           >
@@ -15,7 +16,7 @@
             <h1 class="font-weight-thick">{{ getTitle }}</h1>
           </v-parallax>
           <v-app-bar
-              :class="{ app_bar_scrolled: scrollPosition > 200 }"
+              :class="{ app_bar_scrolled: scrollPosition > 500 }"
               class="app-bar"
               elevation="0"
               fixed
@@ -33,7 +34,7 @@
                   v-for="item in menuItems"
                   :key="item.id"
                   :to="item.path"
-                  class="on-id"
+                  class="on-id plain--btn--2"
                   text
                 >
                   <v-menu
@@ -79,7 +80,7 @@
                   <div v-else>{{ item.title }}</div>
                 </v-btn>
               </v-toolbar-items>
-              <v-menu class="hidden-md-and-up" bottom left style="z-index: 500">
+              <v-menu class="hidden-md-and-up" bottom offset-y left style="z-index: 500">
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn icon color="black" v-bind="attrs" v-on="on">
                     <v-app-bar-nav-icon class="hidden-md-and-up">></v-app-bar-nav-icon>
@@ -103,7 +104,7 @@
     </v-layout>
     <v-app-bar
       v-else
-      :class="{ app_bar_scrolled_else: scrollPosition < 200 }"
+      :class="{ app_bar_scrolled_else: scrollPosition < 500 }"
       color="white"
       elevation="0"
       fixed
@@ -117,7 +118,7 @@
       </v-app-bar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn v-for="item in menuItems" :key="item.id" :to="item.path" text>
+        <v-btn v-for="item in menuItems" :key="item.id" :to="item.path" text class="plain--btn--2">
           <v-menu v-if="item.title === 'UBER UNS'" bottom left
                   open-on-hover
                   offset-y>
@@ -232,7 +233,7 @@ export default {
       return this.$store.state.titleSrc;
     },
     getImage() {
-      return this.$store.state.imageSrc
+      return this.$store.state.imageSrc;
     },
     setSmallText() {
       return this.$store.state.smallText;
@@ -249,10 +250,10 @@ export default {
 
 <style scoped>
 
-.parallax-mirror{
+.parallax-mirror,#vurtUnderlay{
   height:auto!important;
   width:100%!important;
-  padding:45% 0 0;
+  padding:30% 0 0;
 }
 .parallax-mirror img{width:100%!important;height:100%!important}
 
@@ -317,10 +318,17 @@ export default {
 .parallax-class {
   width: 100%;
   height: 800px !important;
-  z-index: 1000;
+  z-index: 100;
   position: relative;
   background-size: contain;
   background: transparent no-repeat center center;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 @media only screen and (max-width: 800px) {
   .parallax-class {
@@ -329,6 +337,10 @@ export default {
 }
 .plain--btn:hover:before {
   background-color: transparent;
+}
+.plain--btn--2:hover:before {
+  background-color: transparent;
+  font-weight: 700
 }
 .plain--btn{
   height: 60px !important;

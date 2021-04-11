@@ -17,7 +17,7 @@
               <v-img
                 :src="items.img"
                 :lazy-src="items.img"
-                height="350"
+                :aspect-ratio="4/3"
               ></v-img>
             </figure>
           </div>
@@ -48,7 +48,7 @@ export default {
 
 <style scoped>
 .image-list {
-  padding: 20px 30px 10px 20px;
+  padding: 20px 10px 10px 20px;
 }
 .item-content {
   font-size: 16px;
@@ -67,12 +67,11 @@ export default {
   height: 250px;
   background: #000000;
   overflow: hidden;
+  padding-top: 40px;
 }
 .image-container figure::after {
   display: block;
   content: "";
-  /* 4:3 aspect ratio */
-  padding-bottom: 75%;
 }
 .image-container figure {
   -webkit-transform: scale(1.5);

@@ -13,7 +13,7 @@
                 col="6">
                 <nuxt-link to="/">
                   <v-img
-                    src="https://mundelarchitekten.de/wp-content/uploads/2018/08/Logo_ohne_hintergrund_lang_weiss.png"
+                    :src="require('@/static/title-image-white.png')"
                     width="600"
                   />
                 </nuxt-link>
@@ -52,7 +52,7 @@ export default {
 <style scoped>
 .footer {
   position: relative;
-  background-image: url(https://mundelarchitekten.de/wp-content/uploads/2018/09/burning-bright-paperback-cover-9780857861177.jpg);
+  background-image: url("./static/footer-image.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

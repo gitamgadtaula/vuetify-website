@@ -59,7 +59,8 @@ export default {
         title: "Leistungen",
         description:"",
         titleImg:
-          "https://mundelarchitekten.de/wp-content/uploads/2018/06/colani.png"
+        require("@/static/colani.png")
+          // "/_nuxt/static/colani.png"
       };
     },
   },
