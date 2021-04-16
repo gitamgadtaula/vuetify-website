@@ -79,6 +79,8 @@ export default {
   created() {
     this.$store.commit("setHeader", false);
     this.$store.commit("setSmallText",false)
+    this.$store.commit("setLogoImage",false)
+
   },
   methods: {
   },

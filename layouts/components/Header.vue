@@ -23,10 +23,12 @@
               text
             >
               <v-app-bar-title>
+                <nuxt-link to="/">
                 <v-img
-                  v-if="setSmallText"
+                  v-if="getLogoImage"
                   :src="require('@/static/title-image-black.png')"
                 />
+                </nuxt-link>
               </v-app-bar-title>
               <v-spacer></v-spacer>
               <v-toolbar-items class="hidden-sm-and-down">
@@ -36,6 +38,7 @@
                   :to="item.path"
                   class="on-id plain--btn--2"
                   text
+                  :ripple="false"
                 >
                   <v-menu
                     v-if="item.title === 'UBER UNS'"
@@ -47,9 +50,10 @@
                   >
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
+                        text
                         v-bind="attrs"
                         v-on="on"
-                        class="on-id plain--btn"
+                        class="on-id plain--btn plain--btn--2"
                         elevation="0"
                         :ripple="false"
                         style="
@@ -118,7 +122,7 @@
       </v-app-bar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn v-for="item in menuItems" :key="item.id" :to="item.path" text class="plain--btn--2">
+        <v-btn v-for="item in menuItems" :key="item.id" :to="item.path" text :ripple="false" class="plain--btn--2">
           <v-menu v-if="item.title === 'UBER UNS'" bottom left
                   open-on-hover
                   offset-y>
@@ -142,6 +146,7 @@
                   <v-btn
                     :to="additem.path"
                     style="width: 100%; background-color: white"
+                    :ripple="false"
                     >{{ additem.title }}</v-btn
                   >
                 </v-list-item-title>
@@ -153,7 +158,7 @@
       </v-toolbar-items>
       <v-menu class="hidden-md-and-up" left>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn icon left color="black" v-bind="attrs" v-on="on">
+          <v-btn icon left color="black" v-bind="attrs" v-on="on" :ripple="false">
             <v-icon class="hidden-md-and-up">mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
@@ -162,6 +167,7 @@
             <v-list-item-title>
               <v-btn
                 :to="item.path"
+                :ripple="false"
                 style="width: 100%; background-color: white"
                 >{{ item.title }}</v-btn
               >
@@ -241,6 +247,9 @@ export default {
     getDescription() {
       return this.$store.state.description;
     },
+    getLogoImage(){
+      return this.$store.state.logoImage
+    }
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
@@ -258,7 +267,7 @@ export default {
 .parallax-mirror img{width:100%!important;height:100%!important}
 
 .app-bar {
-  opacity: 70%;
+  background: rgba(255,255,255, 0) !important;
   position: fixed;
   z-index: 500;
 }
@@ -313,7 +322,7 @@ export default {
 }
 
 .app_bar_scrolled_else {
-  opacity: 0.5;
+  background: rgba(255,255,255, 0) !important;
 }
 .parallax-class {
   width: 100%;
@@ -337,13 +346,40 @@ export default {
 }
 .plain--btn:hover:before {
   background-color: transparent;
-}
-.plain--btn--2:hover:before {
+}.plain--btn:hover:after {
   background-color: transparent;
-  font-weight: 700
 }
 .plain--btn{
   height: 60px !important;
-padding: 0 !important;
+  padding: 0 !important;
+  font-family: "Courier New", sans-serif!important;
+  font-weight: 600;
+  font-size: 16px !important;
+}
+
+.plain--btn--2:focus,
+.plain--btn--2:hover{
+  color:black !important;
+  font-weight: 800 !important;
+
+}
+.plain--btn--2:focus:after,
+.plain--btn--2:hover:after{
+  color:black !important;
+  font-weight: 800 !important;
+}
+
+.plain--btn--2{
+  font-family: "Courier New", sans-serif!important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  letter-spacing: 2px;
+  line-height: 18px;
+  text-transform: uppercase;
+  transition: opacity .3s ease-in;
+  opacity: 1 !important;
+}
+.v-toolbar__content{
+  opacity: 1 !important;
 }
 </style>

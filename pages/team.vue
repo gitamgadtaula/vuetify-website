@@ -73,6 +73,7 @@ export default {
     this.$store.commit("setImage", this.reqData.titleImg);
     this.$store.commit("setTitle", this.reqData.title);
     this.$store.commit("setSmallText", false)
+    this.$store.commit("setLogoImage",false)
     this.$store.commit("setDescription", this.reqData.description)
   },
   methods: {

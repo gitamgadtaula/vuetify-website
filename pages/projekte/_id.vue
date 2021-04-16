@@ -56,6 +56,7 @@ export default {
       this.$store.commit("setImage", this.galleryItems.titleImg);
       this.$store.commit("setTitle", this.galleryItems.title);
       this.$store.commit("setSmallText", true);
+      this.$store.commit("setLogoImage",false)
       this.$store.commit("setDescription", this.galleryItems.description);
     },
   },
