@@ -387,7 +387,7 @@ export default {
 <style>
 .v-parallax__image{
   min-width: 100%;
-  max-height: 100%;
+  max-height: 110%;
   display: none;
   transform: translate(-50%) !important;
   will-change: transform;
