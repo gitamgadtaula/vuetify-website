@@ -3,7 +3,8 @@ export const state = () => ({
   imageSrc:'',
   titleSrc:'',
   smallText:true,
-  description:''
+  description:'',
+  logoImage: false,
 })
 
 export const mutations = {
@@ -21,5 +22,8 @@ export const mutations = {
   },
   setDescription(state, value){
     state.description = value
+  },
+  setLogoImage(state, value) {
+    state.logoImage=value;
   }
 }

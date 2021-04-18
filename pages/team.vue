@@ -73,6 +73,7 @@ export default {
     this.$store.commit("setImage", this.reqData.titleImg);
     this.$store.commit("setTitle", this.reqData.title);
     this.$store.commit("setSmallText", false)
+    this.$store.commit("setLogoImage",false)
     this.$store.commit("setDescription", this.reqData.description)
   },
   methods: {
@@ -83,7 +84,8 @@ export default {
         title: "Unser Team",
         description: "",
         titleImg:
-          "https://mundelarchitekten.de/wp-content/uploads/2020/03/team6.jpg"
+          // "/_nuxt/static/team.jpg"
+          require("@/static/team.jpg")
       };
       this.teamData = [
         {

@@ -9,34 +9,34 @@
       Mit großartigen Menschen - Einmalige Projekte
     </p>
     <div>
-<!--      <v-row>-->
-<!--        <v-flex-->
-<!--          v-for="items in names"-->
-<!--          xs12-->
-<!--          sm6-->
-<!--          md4-->
-<!--          lg4-->
-<!--          xl4-->
-<!--          class="image-ls"-->
-<!--          :key="items.id"-->
-<!--        >-->
-<!--          <router-link :to="items.goto">-->
-<!--            <v-card elevation="0" tile>-->
-<!--              <div class="image-con">-->
-<!--                <figure>-->
-<!--                  <v-img-->
-<!--                    style="vertical-align: center"-->
-<!--                    :src="items.image"-->
-<!--                    :lazy-src="items.image"-->
-<!--                    max-height="500"-->
-<!--                    max-width="500"-->
-<!--                  ></v-img>-->
-<!--                </figure>-->
-<!--              </div>-->
-<!--            </v-card>-->
-<!--          </router-link>-->
-<!--        </v-flex>-->
-<!--      </v-row>-->
+      <v-row>
+        <v-flex
+          v-for="items in names"
+          xs12
+          sm6
+          md4
+          lg4
+          xl4
+          :key="items.id"
+        >
+          <a :href="items.goto">
+            <v-card elevation="0" tile>
+              <div class="image-con">
+                <figure>
+                  <v-img
+                    contain
+                    :src="items.image"
+                    :lazy-src="items.image"
+                    max-height="350"
+                    max-width="350"
+                    position="50% 50%"
+                  ></v-img>
+                </figure>
+              </div>
+            </v-card>
+          </a>
+        </v-flex>
+      </v-row>
     </div>
   </div>
 
@@ -48,15 +48,35 @@ export default {
   data(){
     return{
       names:[
-        {id:1,name:"Seite besuchen",image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",goto:"https://mundelarchitekten.de/kunden/#"},
-        {id:2,name:"Seite besuchen",image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",goto: "https://mundelarchitekten.de/kunden/#"},
-        {id:3,name:"Seite besuchen",image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",goto: "https://mundelarchitekten.de/kunden/#"},
+        {id:1,name:"Seite besuchen",
+          image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",
+          goto:"https://mundelarchitekten.de/kunden/#"},
+        {id:2,name:"Seite besuchen",
+          image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",
+          goto: "https://mundelarchitekten.de/kunden/#"},
+        {id:3,name:"Seite besuchen",
+          image:"https://mundelarchitekten.de/wp-content/uploads/2018/08/brockmannundknoedler-logo.png",
+          goto: "https://mundelarchitekten.de/kunden/#"},
     ]}
+  },
+  created() {
+    this.$store.commit("setHeader", false);
+    this.$store.commit("setSmallText",false)
+    this.$store.commit("setLogoImage",false)
+
   },
 }
 </script>
 
 <style scoped>
+.container {
+  width: 80%;
+  max-height: 100%;
+  padding-top: 3rem;
+}
+div{
+  display: block;
+}
 .glow-text {
   text-shadow: 2px 2px 0 #a5a8a8,
   2px -2px 0 #A5A8A8, -2px 2px 0 #A5A8A8, -2px -2px 0 #A5A8A8, 2px 0px 0 #A5A8A8,
@@ -79,18 +99,18 @@ export default {
   font-weight: 700;
   margin-top: -10vh;
 }
-.image-con figure {
+.image-con {
   position: relative;
-  opacity: 1;
+  opacity: 0.5;
   width: 100%;
   height: 250px;
   overflow: hidden;
   background: #7e7d7d;
   }
+
 .image-con figure::after {
   display: block;
   content: "";
-
 }
 .image-con figure {
   -webkit-transform: scale(1);
@@ -104,11 +124,5 @@ export default {
   background: #000000;
   /*-webkit-transform: scale(1.3);*/
   /*transform: scale(1.3);*/
-}
-img{
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-  padding-top: 50%;
 }
 </style>

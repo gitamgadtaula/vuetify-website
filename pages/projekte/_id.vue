@@ -1,7 +1,7 @@
 <template>
   <div class="index-container">
     <v-row>
-      <v-flex
+      <v-col
         v-for="items in galleryItems.images"
         xs12
         sm12
@@ -13,7 +13,7 @@
         style="z-index: 0"
       >
         <v-img :src="items.img" :lazy-src="items.img"> </v-img>
-      </v-flex>
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -56,6 +56,7 @@ export default {
       this.$store.commit("setImage", this.galleryItems.titleImg);
       this.$store.commit("setTitle", this.galleryItems.title);
       this.$store.commit("setSmallText", true);
+      this.$store.commit("setLogoImage",false)
       this.$store.commit("setDescription", this.galleryItems.description);
     },
   },
@@ -65,5 +66,12 @@ export default {
 <style scoped>
 .image-list {
   padding-bottom: 8vh;
+}
+.index-container{
+  width: 80%;
+  margin: auto;
+}
+div{
+  display: block;
 }
 </style>

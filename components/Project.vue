@@ -1,45 +1,15 @@
 <template>
   <div class="container">
-    <v-row>
-      <v-flex
-        v-for="items in projectItems"
-        xs12
-        sm6
-        md4
-        lg4
-        xl4
-        class="image-list"
-        :key="items.id"
-      >
-        <router-link :to="`/projekte/${items.id}`">
-          <v-card elevation="0" tile>
-            <div class="image-container">
-              <figure>
-                <v-img
-                  :src="items.img"
-                  :lazy-src="items.img"
-                  height="350"
-                  max-width="500"
-                ></v-img>
-              </figure>
-            </div>
-            <v-card-title primary-title>
-              <div>
-                <h3 class="headline mb-0 item-content">
-                  {{ items.value }}
-                </h3>
-              </div>
-            </v-card-title>
-          </v-card>
-        </router-link>
-      </v-flex>
-    </v-row>
+    <image_list_flex :list-data="projectItems"
+                     :to-value="'projekte'"/>
   </div>
 </template>
 
 <script>
+import image_list_flex from "@/components/image_list_flex";
 export default {
   name: "Project",
+  components:{image_list_flex},
   props: ["fromIndex"],
   data() {
     return {
@@ -73,6 +43,7 @@ export default {
   /*font-family: Roboto, sans-serif;*/
   font-weight: 400;
   word-wrap: break-word;
+  word-break: break-word;
 }
 .item-content:hover {
   color: #6f6f68;

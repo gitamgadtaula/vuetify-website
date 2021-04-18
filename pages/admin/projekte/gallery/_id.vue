@@ -1,4 +1,5 @@
 <template>
+
   <v-app>
     <gallery-items type="projekteGallery" :id="$route.params.id" />
   </v-app>

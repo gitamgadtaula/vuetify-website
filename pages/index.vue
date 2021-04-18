@@ -14,7 +14,8 @@ export default {
   data() {
     return {
       homeImg:
-        "https://mundelarchitekten.de/wp-content/uploads/2018/08/startbildschirmklein_3.png",
+        require("@/static/index-header.png")
+        // "https://mundelarchitekten.de/wp-content/uploads/2018/08/startbildschirmklein_3.png",
     };
   },
   components: {
@@ -25,6 +26,7 @@ export default {
     this.$store.commit("setImage", this.homeImg);
     this.$store.commit("setTitle", "");
     this.$store.commit("setSmallText",false)
+    this.$store.commit("setLogoImage",false)
   },
 };
 </script>
