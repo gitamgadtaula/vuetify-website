@@ -326,7 +326,7 @@ export default {
 }
 .parallax-class {
   width: 100%;
-  height: 800px !important;
+  height: 100vh !important;
   z-index: 100;
   position: relative;
   background-size: contain;
@@ -339,9 +339,10 @@ export default {
   -ms-flex-align: center;
   align-items: center;
 }
+
 @media only screen and (max-width: 800px) {
   .parallax-class {
-    height: 600px !important;
+    height: 80vh !important;
   }
 }
 .plain--btn:hover:before {
@@ -381,5 +382,14 @@ export default {
 }
 .v-toolbar__content{
   opacity: 1 !important;
+}
+</style>
+<style>
+.v-parallax__image{
+  min-width: 100%;
+  max-height: 100%;
+  display: none;
+  transform: translate(-50%) !important;
+  will-change: transform;
 }
 </style>
