@@ -25,6 +25,7 @@ export default {
   },
   created() {
     this.getLists();
+    this.$store.commit("setHeaderFontColor",true)
     if (!this.fromIndex) {
       this.$store.commit("setHeader", false);
     } else {

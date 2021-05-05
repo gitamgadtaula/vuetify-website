@@ -29,8 +29,10 @@ export default {
     this.$store.commit("setImage", this.reqData.titleImg);
     this.$store.commit("setTitle", this.reqData.title);
     this.$store.commit("setSmallText",false)
-    this.$store.commit("setLogoImage",false)
+    this.$store.commit("setLogoImage",true)
     this.$store.commit("setDescription",this.reqData.description)
+    this.$store.commit("setHeaderFontColor",false)
+
   },
   methods: {
     getItems() {
@@ -38,15 +40,20 @@ export default {
       this.reqData = {
         id: 1,
         title: "PHILOSOPHIE",
-        description:"",
+        description: "",
         titleImg:
           require('@/static/PHILOSOPHIE.jpg')
-          // "/_nuxt/static/PHILOSOPHIE.jpg"
-          // "https://mundelarchitekten.de/wp-content/uploads/2018/06/07.01-PHILOSOPHIE_bild.jpg"
+        // "/_nuxt/static/PHILOSOPHIE.jpg"
+        // "https://mundelarchitekten.de/wp-content/uploads/2018/06/07.01-PHILOSOPHIE_bild.jpg"
       };
     },
   },
-};
+    head() {
+      return {
+        title: 'Philosophie',
+      }
+    }
+  }
 </script>
 
 <style scoped>

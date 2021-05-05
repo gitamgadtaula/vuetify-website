@@ -16,8 +16,7 @@
             <h1 class="font-weight-thick">{{ getTitle }}</h1>
           </v-parallax>
           <v-app-bar
-              :class="{ app_bar_scrolled: scrollPosition > 500 }"
-              class="app-bar"
+            :class="((scrollPosition > 100) && getHeaderColor) ? 'app_bar_scrolled_white' :((scrollPosition > 100) && !getHeaderColor) ? 'app_bar_scrolled_black':'app-bar'"
               elevation="0"
               fixed
               text
@@ -25,8 +24,12 @@
               <v-app-bar-title>
                 <nuxt-link to="/">
                 <v-img
-                  v-if="getLogoImage"
+                  v-if="getLogoImage && getHeaderColor"
                   :src="require('@/static/title-image-black.png')"
+                />
+                <v-img
+                  v-if="getLogoImage && !getHeaderColor"
+                  :src="require('@/static/title-image-white-header.png')"
                 />
                 </nuxt-link>
               </v-app-bar-title>
@@ -36,7 +39,8 @@
                   v-for="item in menuItems"
                   :key="item.id"
                   :to="item.path"
-                  class="on-id plain--btn--2"
+                  class="plain--btn--2"
+                  :class="getHeaderColor?'on_id_black':'on_id_white'"
                   text
                   :ripple="false"
                 >
@@ -53,7 +57,8 @@
                         text
                         v-bind="attrs"
                         v-on="on"
-                        class="on-id plain--btn plain--btn--2"
+                        class="plain--btn plain--btn--2"
+                        :class="getHeaderColor?'on_id_black':'on_id_white'"
                         elevation="0"
                         :ripple="false"
                         style="
@@ -108,7 +113,7 @@
     </v-layout>
     <v-app-bar
       v-else
-      :class="{ app_bar_scrolled_else: scrollPosition < 500 }"
+      :class="((scrollPosition > 100) && getHeaderColor) ? 'app_bar_scrolled_white' :((scrollPosition > 100) && !getHeaderColor) ? 'app_bar_scrolled_black':'app-bar'"
       color="white"
       elevation="0"
       fixed
@@ -122,7 +127,13 @@
       </v-app-bar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn v-for="item in menuItems" :key="item.id" :to="item.path" text :ripple="false" class="plain--btn--2">
+        <v-btn v-for="item in menuItems"
+               :key="item.id"
+               :to="item.path"
+               text
+               :ripple="false"
+               class="plain--btn--2"
+               :class="getHeaderColor?'on_id_black':'on_id_white'">
           <v-menu v-if="item.title === 'UBER UNS'" bottom left
                   open-on-hover
                   offset-y>
@@ -133,7 +144,8 @@
                 elevation="0"
                 large
                 block
-                class="plain--btn"
+                class="plain--btn plain--btn--2"
+                :class="getHeaderColor?'on_id_black':'on_id_white'"
                 :ripple="false"
                 style="background-color: transparent"
               >
@@ -249,6 +261,9 @@ export default {
     },
     getLogoImage(){
       return this.$store.state.logoImage
+    },
+    getHeaderColor(){
+      return this.$store.state.headerColor
     }
   },
   mounted() {
@@ -268,18 +283,24 @@ export default {
 
 .app-bar {
   background: rgba(255,255,255, 0) !important;
-  position: fixed;
+  color: white;
   z-index: 500;
 }
 
-.app_bar_scrolled {
+.app_bar_scrolled_black {
   background-color: black !important;
   opacity: 100%;
   transition: background-color 200ms linear;
   color: white !important;
 }
+.app_bar_scrolled_white {
+  background-color: white !important;
+  opacity: 100%;
+  transition: background-color 200ms linear;
+  color: white !important;
+}
 
-.app_bar_scrolled .on-id {
+.app_bar_scrolled_black .on_id_black {
   color: white !important;
 }
 
@@ -300,7 +321,14 @@ export default {
 }
 
 .on-id {
-  color: black;
+  font-weight: 500 !important;
+}
+.on_id_white {
+  color: white !important;
+  font-weight: 500 !important;
+}
+.on_id_black {
+  color: black !important;
   font-weight: 500 !important;
 }
 
@@ -360,13 +388,13 @@ export default {
 
 .plain--btn--2:focus,
 .plain--btn--2:hover{
-  color:black !important;
+  /*color:black !important;*/
   font-weight: 800 !important;
 
 }
 .plain--btn--2:focus:after,
 .plain--btn--2:hover:after{
-  color:black !important;
+  /*color:black !important;*/
   font-weight: 800 !important;
 }
 

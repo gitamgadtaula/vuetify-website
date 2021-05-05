@@ -80,11 +80,17 @@ export default {
     this.$store.commit("setHeader", false);
     this.$store.commit("setSmallText",false)
     this.$store.commit("setLogoImage",false)
+    this.$store.commit("setHeaderFontColor",true)
+
 
   },
   methods: {
   },
-};
+  head() {
+    return {
+      title: 'Impressum',
+    }
+  }};
 </script>
 
 

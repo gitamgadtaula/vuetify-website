@@ -63,9 +63,15 @@ export default {
     this.$store.commit("setHeader", false);
     this.$store.commit("setSmallText",false)
     this.$store.commit("setLogoImage",false)
+    this.$store.commit("setHeaderFontColor",true)
+
 
   },
-}
+  head() {
+    return {
+      title: 'Kunden',
+    }
+  }}
 </script>
 
 <style scoped>

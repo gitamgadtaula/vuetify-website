@@ -15,7 +15,11 @@ export default {
   created() {
     this.$store.commit("setHeader", false);
   },
-};
+  head() {
+    return {
+      title: 'Salons',
+    }
+  }};
 </script>
 
 <style scoped>

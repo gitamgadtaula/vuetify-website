@@ -5,6 +5,10 @@ export const state = () => ({
   smallText:true,
   description:'',
   logoImage: false,
+
+  //true for Black Font Color
+  //false for white Font Color
+  headerColor:true
 })
 
 export const mutations = {
@@ -25,5 +29,8 @@ export const mutations = {
   },
   setLogoImage(state, value) {
     state.logoImage=value;
+  },
+  setHeaderFontColor(state, value) {
+    state.headerColor=value;
   }
 }
