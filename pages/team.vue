@@ -127,6 +127,11 @@ export default {
       ]
     },
   },
+  head() {
+    return {
+      title: 'Team',
+    }
+  }
 };
 </script>
 

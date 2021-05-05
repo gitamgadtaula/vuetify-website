@@ -29,7 +29,11 @@ export default {
     this.$store.commit("setLogoImage",false)
     this.$store.commit("setHeaderFontColor",true)
   },
-};
+  head() {
+    return {
+      title: 'Home',
+    }
+  }};
 </script>
 <style scoped>
 .container {

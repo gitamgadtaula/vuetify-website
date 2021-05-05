@@ -40,15 +40,20 @@ export default {
       this.reqData = {
         id: 1,
         title: "PHILOSOPHIE",
-        description:"",
+        description: "",
         titleImg:
           require('@/static/PHILOSOPHIE.jpg')
-          // "/_nuxt/static/PHILOSOPHIE.jpg"
-          // "https://mundelarchitekten.de/wp-content/uploads/2018/06/07.01-PHILOSOPHIE_bild.jpg"
+        // "/_nuxt/static/PHILOSOPHIE.jpg"
+        // "https://mundelarchitekten.de/wp-content/uploads/2018/06/07.01-PHILOSOPHIE_bild.jpg"
       };
     },
   },
-};
+    head() {
+      return {
+        title: 'Philosophie',
+      }
+    }
+  }
 </script>
 
 <style scoped>

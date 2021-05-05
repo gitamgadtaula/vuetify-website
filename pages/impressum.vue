@@ -86,7 +86,11 @@ export default {
   },
   methods: {
   },
-};
+  head() {
+    return {
+      title: 'Impressum',
+    }
+  }};
 </script>
 
 

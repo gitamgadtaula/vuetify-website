@@ -72,7 +72,11 @@ export default {
       };
     },
   },
-}
+  head() {
+    return {
+      title: 'Kontakt',
+    }
+  }}
 </script>
 
 <style scoped>

@@ -67,7 +67,11 @@ export default {
 
 
   },
-}
+  head() {
+    return {
+      title: 'Kunden',
+    }
+  }}
 </script>
 
 <style scoped>

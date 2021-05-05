@@ -6,8 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "%s - vuetify-website",
-    title: "vuetify-website",
+    titleTemplate: "%s - Mundel Architekten",
     htmlAttrs: {
       lang: "en"
     },
@@ -16,7 +15,7 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/title_image_top.jpg" }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

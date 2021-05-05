@@ -62,6 +62,11 @@ export default {
 
     },
   },
+  head() {
+    return {
+      title: this.galleryItems.title,
+    }
+  }
 };
 </script>
 
