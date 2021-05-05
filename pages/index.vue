@@ -27,6 +27,7 @@ export default {
     this.$store.commit("setTitle", "");
     this.$store.commit("setSmallText",false)
     this.$store.commit("setLogoImage",false)
+    this.$store.commit("setHeaderFontColor",true)
   },
 };
 </script>

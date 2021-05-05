@@ -26,6 +26,8 @@ export default {
   created() {
     this.getLists();
     this.$store.commit("setHeader", false);
+    this.$store.commit("setHeaderFontColor",true)
+
   },
 };
 </script>

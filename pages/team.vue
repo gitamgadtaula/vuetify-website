@@ -73,8 +73,10 @@ export default {
     this.$store.commit("setImage", this.reqData.titleImg);
     this.$store.commit("setTitle", this.reqData.title);
     this.$store.commit("setSmallText", false)
-    this.$store.commit("setLogoImage",false)
+    this.$store.commit("setLogoImage",true)
     this.$store.commit("setDescription", this.reqData.description)
+    this.$store.commit("setHeaderFontColor",false)
+
   },
   methods: {
     getItems() {
@@ -91,37 +93,37 @@ export default {
         {
           id: 1,
           name: "Kai Mundel",
-          image: "https://mundelarchitekten.de/wp-content/uploads/2021/03/Kai_Hochformat.jpg"
+          image: require('@/static/teams/kai_mundel.jpg')
         },
         {
           id: 2,
           name: "Tina Schaller",
-          image: "https://mundelarchitekten.de/wp-content/uploads/2021/03/Kai_Hochformat.jpg"
+          image: require('@/static/teams/tina_schaller.jpg')
         },
         {
           id: 3,
           name: "Simone Wurm",
-          image: "https://mundelarchitekten.de/wp-content/uploads/2021/03/Kai_Hochformat.jpg"
+          image: require('@/static/teams/simone_wurm.jpg')
         },
         {
           id: 4,
           name: "Mahsa Chaharbaghi Sichani",
-          image: "https://mundelarchitekten.de/wp-content/uploads/2021/03/Kai_Hochformat.jpg"
+          image: require('@/static/teams/mahsa_c_s.jpg')
         },
         {
           id: 5,
           name: "Fabian Dej",
-          image: "https://mundelarchitekten.de/wp-content/uploads/2021/03/Kai_Hochformat.jpg"
+          image: require('@/static/teams/fabian_dej.jpg')
         },
         {
           id: 6,
           name: "Huyen Tran Tran",
-          image: "https://mundelarchitekten.de/wp-content/uploads/2021/03/Kai_Hochformat.jpg"
+          image: require('@/static/teams/tran_tran.jpg')
         }
       ]
       this.teamImages = [
-        {img: "https://mundelarchitekten.de/wp-content/uploads/2018/11/B%C3%BCro.jpg"},
-        {img: "https://mundelarchitekten.de/wp-content/uploads/2018/12/B%C3%BCro3.jpg"}
+        {img: require('@/static/teams/teams1.jpg')},
+        {img: require('@/static/teams/teams2.jpg')}
       ]
     },
   },
