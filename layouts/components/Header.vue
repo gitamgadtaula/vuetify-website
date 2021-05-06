@@ -16,7 +16,7 @@
             <h1 class="font-weight-thick">{{ getTitle }}</h1>
           </v-parallax>
           <v-app-bar
-            :class="((scrollPosition > 100) && getHeaderColor) ? 'app_bar_scrolled_white' :((scrollPosition > 100) && !getHeaderColor) ? 'app_bar_scrolled_black':'app-bar'"
+            :class="((scrollPosition > 500) && getHeaderColor) ? 'app_bar_scrolled_white' :((scrollPosition > 500) && !getHeaderColor) ? 'app_bar_scrolled_black':'app-bar'"
               elevation="0"
               fixed
               text
@@ -113,7 +113,7 @@
     </v-layout>
     <v-app-bar
       v-else
-      :class="((scrollPosition > 100) && getHeaderColor) ? 'app_bar_scrolled_white' :((scrollPosition > 100) && !getHeaderColor) ? 'app_bar_scrolled_black':'app-bar'"
+      :class="((scrollPosition > 500) && getHeaderColor) ? 'app_bar_scrolled_white' :((scrollPosition > 500) && !getHeaderColor) ? 'app_bar_scrolled_black':'app-bar'"
       color="white"
       elevation="0"
       fixed
