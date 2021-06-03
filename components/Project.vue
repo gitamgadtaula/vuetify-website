@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <image_list_flex :list-data="projectItems"
-                     :to-value="'projekte'"/>
+    <image_list_flex :list-data="projectItems" :to-value="'projekte'" />
   </div>
 </template>
 
@@ -9,7 +8,7 @@
 import image_list_flex from "@/components/image_list_flex";
 export default {
   name: "Project",
-  components:{image_list_flex},
+  components: { image_list_flex },
   props: ["fromIndex"],
   data() {
     return {
@@ -18,14 +17,14 @@ export default {
   },
   methods: {
     getLists() {
-      this.$axios.get("/projekte").then((response) => {
+      this.$axios.get("/projects?category=project").then((response) => {
         this.projectItems = response.data;
       });
     },
   },
   created() {
     this.getLists();
-    this.$store.commit("setHeaderFontColor",true)
+    this.$store.commit("setHeaderFontColor", true);
     if (!this.fromIndex) {
       this.$store.commit("setHeader", false);
     } else {
@@ -92,5 +91,4 @@ a {
   /*-webkit-transform: scale(1.3);*/
   /*transform: scale(1.3);*/
 }
-
 </style>

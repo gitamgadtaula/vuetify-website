@@ -56,29 +56,28 @@ export default {
       this.$store.commit("setImage", this.galleryItems.titleImg);
       this.$store.commit("setTitle", this.galleryItems.title);
       this.$store.commit("setSmallText", true);
-      this.$store.commit("setLogoImage", true)
+      this.$store.commit("setLogoImage", true);
       this.$store.commit("setDescription", this.galleryItems.description);
-      this.$store.commit("setHeaderFontColor", false)
-
+      this.$store.commit("setHeaderFontColor", false);
     },
   },
-    head() {
-      return {
-        title: this.galleryItems.title,
-      }
-    }
-  };
+  head() {
+    return {
+      title: this.galleryItems.title,
+    };
+  },
+};
 </script>
 
 <style scoped>
 .image-list {
   padding-bottom: 8vh;
 }
-.index-container{
+.index-container {
   width: 80%;
   margin: auto;
 }
-div{
+div {
   display: block;
 }
 </style>

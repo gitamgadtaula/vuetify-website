@@ -1,5 +1,9 @@
 import colors from "vuetify/es5/util/colors";
 
+// logindata
+// admin
+// fjX4nsAajkl46
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -19,7 +23,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/style.css'],
+  css: ["@/assets/css/style.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -34,14 +38,50 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth-next"],
   axios: {
-    baseUrl: "http://localhost:1999/"
+    baseUrl: "https://3i6hdatjtq-dw7qpnwz42cro.eu.s5y.io/api",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    }
   },
+
+  auth: {
+    redirect: {
+      login: "/admin/login",
+      logout: "/",
+      callback: "/admin/login",
+      home: "/admin"
+    },
+    strategies: {
+      local: {
+        token: {
+          property: "token"
+          // required: true,
+          // type: 'Bearer'
+        },
+        user: {
+          property: "user"
+          // autoFetch: true
+        },
+        endpoints: {
+          login: { url: "/authentication_token", method: "post" },
+          // logout: { url: "/api/auth/logout", method: "post" },
+          user: false
+        }
+      }
+    }
+  },
+
+  // router: {
+  //   middleware: ["auth"]
+  // },
+
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     treeShake: true,
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ["~/assets/variables.scss"],
     theme: {
       dark: false,
       themes: {

@@ -15,16 +15,16 @@
           <div class="image-container">
             <figure>
               <v-img
-                :src="items.img"
+                :src="getImgUrl(items.project_item.contentUrl)"
                 :lazy-src="items.img"
-                :aspect-ratio="4/3"
+                :aspect-ratio="4 / 3"
               ></v-img>
             </figure>
           </div>
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0 item-content">
-                {{ items.value }}
+                {{ items.title }}
               </h3>
             </div>
           </v-card-title>
@@ -38,12 +38,18 @@
 export default {
   name: "image_list_flex",
   props: {
-    listData: {
-    },
+    listData: {},
     toValue: {
       type: String,
     },
-  },}
+  },
+  methods: {
+    getImgUrl(img) {
+      console.log(img);
+      return "https://3i6hdatjtq-dw7qpnwz42cro.eu.s5y.io" + img;
+    },
+  },
+};
 </script>
 
 <style scoped>
