@@ -1,5 +1,10 @@
 <template>
   <div class="index-container">
+    <!-- {{ galleryItems }} -->
+    <br />
+    <br />
+    <br />
+    <br />
     <v-row>
       <v-col
         v-for="items in galleryItems.images"
@@ -12,7 +17,11 @@
         :key="items.img"
         style="z-index: 0"
       >
-        <v-img :src="items.img" :lazy-src="items.img"> </v-img>
+        <v-img
+          :src="$getImagePath(items.contentUrl)"
+          :lazy-src="items.contentUrl"
+        >
+        </v-img>
       </v-col>
     </v-row>
   </div>
@@ -33,24 +42,22 @@ export default {
   },
   created() {
     this.getGalleryItems();
-    this.getParentItem();
+    // this.getParentItem();
   },
   methods: {
     getGalleryItems() {
-      this.$axios
-        .get(`/projekteGallery?master_id=${this.id}`)
-        .then((response) => {
-          this.$set(this.galleryItems, "images", response.data);
-        });
-    },
-    getParentItem() {
-      this.$axios.get(`/projekte/${this.id}`).then((response) => {
-        this.$set(this.galleryItems, "title", response.data.value);
-        this.$set(this.galleryItems, "description", response.data.desc);
-        this.$set(this.galleryItems, "titleImg", response.data.img);
-        this.setGlobalSettings();
+      this.$axios.get(`/project_items?project=${this.id}`).then((response) => {
+        this.$set(this.galleryItems, "images", response.data);
       });
     },
+    // getParentItem() {
+    //   this.$axios.get(`/projekte/${this.id}`).then((response) => {
+    //     this.$set(this.galleryItems, "title", response.data.value);
+    //     this.$set(this.galleryItems, "description", response.data.desc);
+    //     this.$set(this.galleryItems, "titleImg", response.data.img);
+    //     this.setGlobalSettings();
+    //   });
+    // },
     setGlobalSettings() {
       this.$store.commit("setHeader", true);
       this.$store.commit("setImage", this.galleryItems.titleImg);
